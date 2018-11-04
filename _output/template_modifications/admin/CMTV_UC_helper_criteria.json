@@ -1,0 +1,9 @@
+{
+    "template": "helper_criteria",
+    "description": "Addon's criteria",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:optgroup label=\"{{ phrase('avatar:') }}\">",
+    "replace": "<xf:optgroup label=\"{{ phrase('CMTV_UC_username_changes:') }}\">\n\t<xf:option name=\"user_criteria[CMTV_UC_change_count][rule]\" value=\"CMTV_UC_change_count\" selected=\"{$criteria.CMTV_UC_change_count}\"\n\t\t\t   label=\"{{ phrase('CMTV_UC_user_has_changed_username_at_least_x_times:') }}\">\n\t\t<xf:numberbox name=\"user_criteria[CMTV_UC_change_count][data][changes]\" value=\"{$criteria.CMTV_UC_change_count.changes}\"\n\t\t\t\t\t  size=\"5\" min=\"0\" step=\"1\" />\n\t</xf:option>\n\n\t<xf:option name=\"user_criteria[CMTV_UC_changes_maximum][rule]\" value=\"CMTV_UC_changes_maximum\" selected=\"{$criteria.CMTV_UC_changes_maximum}\"\n\t\t\t   label=\"{{ phrase('CMTV_UC_user_has_changed_username_no_more_than_x_times:') }}\">\n\t\t<xf:numberbox name=\"user_criteria[CMTV_UC_changes_maximum][data][changes]\" value=\"{$criteria.CMTV_UC_changes_maximum.changes}\"\n\t\t\t\t\t  size=\"5\" min=\"0\" step=\"1\" />\n\t</xf:option>\n</xf:optgroup>\n\n$0"
+}

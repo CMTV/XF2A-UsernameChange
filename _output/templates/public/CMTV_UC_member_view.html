@@ -1,0 +1,32 @@
+<xf:if is="$xf.visitor.canViewUsernameChanges() && $user.hasUsernameChangeHistory()">
+	<xf:button class="button--link CMTV_UC-show" data-xf-click="menu"><i class="fa fa-caret-down"></i></xf:button>
+	<div class="menu CMTV_UC-data" data-menu="menu" aria-hidden="true">
+		<div class="menu-content">
+			<h4 class="menu-header">{{ phrase('CMTV_UC_also_known_as') }}</h4>
+			<xf:foreach loop="$user.recent_username_changes" value="$usernameChange">
+				<div class="menu-linkRow"
+					 title="{{ phrase('CMTV_UC_used_till_change_in') . ' ' . date_time($usernameChange.change_date) }}">
+					{$usernameChange.old_username}
+				</div>
+			</xf:foreach>
+			<xf:if contentcheck="true">
+				<div class="menu-footer menu-footer--split">
+					<span class="menu-footer-main">
+						<xf:contentcheck>
+							<xf:if is="$user.CMTV_UC_username_changes > $xf.options.CMTV_UC_recentUsernameChanges">
+								<a href="{{ link('username-changes', $user) }}">{{ phrase('CMTV_UC_view_all') }}</a>
+							</xf:if>
+						</xf:contentcheck>
+					</span>
+					<span class="menu-footer-opposite">
+						<xf:contentcheck>
+							<xf:if is="$xf.visitor.canDeleteOwnUsernameChangeHistory() || $xf.visitor.canDeleteAnyUsernameChangeHistory()">
+								<a href="{{ link('username-changes', $user, {'edit': 1}) }}">{{ phrase('edit_history') }}</a>
+							</xf:if>
+						</xf:contentcheck>
+					</span>
+				</div>
+			</xf:if>
+		</div>
+	</div>
+</xf:if>

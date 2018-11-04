@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Admin\\Controller\\Permission",
+    "to_class": "CMTV\\UsernameChange\\XF\\Admin\\Controller\\Permission",
+    "execute_order": 10,
+    "active": true
+}

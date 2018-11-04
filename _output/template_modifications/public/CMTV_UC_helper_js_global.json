@@ -1,0 +1,9 @@
+{
+    "template": "helper_js_global",
+    "description": "Including addon's stylesheet",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<!--XF:CSS-->",
+    "replace": "<xf:css src=\"CMTV_UC.less\" />\n\n$0"
+}

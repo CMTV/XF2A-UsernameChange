@@ -1,0 +1,56 @@
+<xf:title>{{ phrase('CMTV_UC_member_x_username_changes', {'name': $user.username}) }}</xf:title>
+
+<xf:breadcrumb href="{{ link('members', $user) }}">{$user.username}</xf:breadcrumb>
+
+<xf:if is="$usernameChanges is not empty">
+	
+	<xf:pageaction>
+		<xf:if is="$xf.visitor.canDeleteOwnUsernameChangeHistory() || $xf.visitor.canDeleteAnyUsernameChangeHistory()">
+			<xf:if is="!$editView">
+				<xf:button href="{{ link('username-changes', $user, {'edit': 1}) }}" icon="edit">{{ phrase('edit_history') }}</xf:button>
+			</xf:if>
+
+			<xf:button href="{{ link('username-changes/clear', $user) }}" icon="delete" overlay="true">{{ phrase('CMTV_UC_clear_history') }}</xf:button>
+		</xf:if>
+	</xf:pageaction>
+	
+	<xf:form action="{{ link(($editView ? 'username-changes/edit' : ''), $user) }}" class="block">
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:datarow rowtype="header">
+						<xf:if is="$editView"><xf:cell></xf:cell></xf:if>
+						<xf:cell>{{ phrase('CMTV_UC_old_username') }}</xf:cell>
+						<xf:cell>{{ phrase('CMTV_UC_new_username') }}</xf:cell>
+						<xf:cell>{{ phrase('CMTV_UC_changed') }}</xf:cell>
+					</xf:datarow>
+					<xf:foreach loop="$usernameChanges" value="$usernameChange">
+						<xf:macro name="item" arg-usernameChange="{$usernameChange}" arg-editView="{$editView}" />
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			
+			<div class="block-footer block-footer--split">
+				<span class="block-footer-counter">
+					{{ phrase('CMTV_UC_x_username_changes_in_total', { 'total': $user.CMTV_UC_username_changes }) }}
+				</span>
+				<xf:if is="$editView">
+					<span class="block-footer-controls"><xf:button type="submit" icon="delete" /></span>
+				</xf:if>
+			</div>
+		</div>
+	</xf:form>
+<xf:else />
+	<div class="blockMessage">{{ phrase('CMTV_UC_x_has_empty_username_change_history', {'name': $user.username}) }}</div>
+</xf:if>
+
+<xf:macro name="item" arg-usernameChange="!" arg-editView="!">
+	<xf:datarow>
+		<xf:if is="$editView">
+			<xf:toggle name="selected[]" value="{$usernameChange.change_id}" />
+		</xf:if>
+		<xf:cell class="dataList-minorRow">{$usernameChange.old_username}</xf:cell>
+		<xf:cell class="dataList-mainRow">{$usernameChange.new_username}</xf:cell>
+		<xf:cell><xf:date time="$usernameChange.change_date" /></xf:cell>
+	</xf:datarow>
+</xf:macro>

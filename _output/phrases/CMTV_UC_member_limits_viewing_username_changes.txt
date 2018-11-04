@@ -1,0 +1,1 @@
+This member limits who may view their username changes.

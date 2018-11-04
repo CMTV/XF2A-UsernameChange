@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\ChangeLog\\User",
+    "to_class": "CMTV\\UsernameChange\\XF\\ChangeLog\\User",
+    "execute_order": 10,
+    "active": true
+}

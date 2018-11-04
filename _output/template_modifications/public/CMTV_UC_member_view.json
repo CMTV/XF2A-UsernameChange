@@ -1,0 +1,9 @@
+{
+    "template": "member_view",
+    "description": "Adding \"See username changes\" button at the right of username",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:username user=\"{$user}\" rich=\"true\" href=\"\" />",
+    "replace": "$0\n\n<xf:include template=\"CMTV_UC_member_view\" />"
+}

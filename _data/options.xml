@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="CMTV_UC_recentUsernameChanges" edit_format="spinbox" data_type="positive_integer">
+    <default_value>5</default_value>
+    <edit_format_params>min=1</edit_format_params>
+    <relation group_id="users" display_order="1000"/>
+  </option>
+</options>

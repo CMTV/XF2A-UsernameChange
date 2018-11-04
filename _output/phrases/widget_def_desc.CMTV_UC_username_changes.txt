@@ -1,0 +1,1 @@
+Displays a block containing a list of X recent username changes.

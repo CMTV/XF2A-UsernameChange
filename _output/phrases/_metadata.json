@@ -1,0 +1,248 @@
+{
+    "CMTV_UC_also_known_as.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "4985e391513aa2449d2878107eb2d751"
+    },
+    "CMTV_UC_changed.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "820dbd2b8f606aff866c0bbfb6b737c1"
+    },
+    "CMTV_UC_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "c112bb3542e98308d12d5ecb10a67abc"
+    },
+    "CMTV_UC_clear_history.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "5da05bc8549774067d26020eba9bec46"
+    },
+    "CMTV_UC_member_limits_viewing_username_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "4934d0ec634282091d1c2b30a68c16d6"
+    },
+    "CMTV_UC_member_x_username_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "4978dc20672ffbdc186a5ff7b97ec962"
+    },
+    "CMTV_UC_new_username.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "ffaf110764bf8f233ad78a0826fa960f"
+    },
+    "CMTV_UC_number_of_username_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "b873cf8c151332ec65bbb4ec47d76e34"
+    },
+    "CMTV_UC_old_username.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "93eac64e82c847d2e7f52a55448f759d"
+    },
+    "CMTV_UC_please_select_at_least_one_username_change_to_delete.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "0694c6779a6e8783275cf3017dbc0ad2"
+    },
+    "CMTV_UC_rebuild_username_change_counts.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "e9373753709cad13124dc02e49f08da2"
+    },
+    "CMTV_UC_used_till_change_in.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "5ddc708462128996fa6f3ac0ec507c75"
+    },
+    "CMTV_UC_user_has_changed_username_at_least_x_times.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "18c6c96c4487650aec1e4aac4b184d33"
+    },
+    "CMTV_UC_user_has_changed_username_no_more_than_x_times.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "abd2ff9d8839e7474c79045c296df4f4"
+    },
+    "CMTV_UC_username_change_count_rebuild.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "484d978518ecf92b3f4b13f78e1f70d6"
+    },
+    "CMTV_UC_username_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "44b4b721e2a9d2bb41d55cf5076019e8"
+    },
+    "CMTV_UC_username_changes_in_history.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "4491989996b3abbec37ace8b4f3a5868"
+    },
+    "CMTV_UC_username_days_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "3ee126290b99ca7078abb687dd92bac1"
+    },
+    "CMTV_UC_username_disabled_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "a19d1e1b2347518045d181c3b72f552e"
+    },
+    "CMTV_UC_username_unlimited_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "f130371767b1d1203614d5bc975f45c8"
+    },
+    "CMTV_UC_view_all.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "0b4db271fc4624853e634ef6882ea8be"
+    },
+    "CMTV_UC_view_your_username_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "875122fb25b896b134783fa99b618439"
+    },
+    "CMTV_UC_widget_default_title.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "c27a54f1590dd33cd66f5332765efb2e"
+    },
+    "CMTV_UC_widget_full_style_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "e88120b6ca7588ad68304d4dec623535"
+    },
+    "CMTV_UC_x_changed_username_to_y.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "a23ec616f5cf6a9bddaaea18315ba7ae"
+    },
+    "CMTV_UC_x_has_empty_username_change_history.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "31b21ceb41bf5a2e38d91bf555767db3"
+    },
+    "CMTV_UC_x_username_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "c5ece8024532011e9579329c391504d0"
+    },
+    "CMTV_UC_x_username_changes_in_total.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "1dba50c4b906f967007ddde629243b7c"
+    },
+    "CMTV_UC_you_have_made_x_username_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "0ff418b67bb41f6e2752b9f240f4254b"
+    },
+    "option.CMTV_UC_recentUsernameChanges.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "2ecaf060ab82cd2262a1127e9b469daa"
+    },
+    "option_explain.CMTV_UC_recentUsernameChanges.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "ba0316c330f8af502c88958c806431fc"
+    },
+    "permission.CMTV_UC_changeFrequency.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "177215d03468c29f1b86d5b83dfa149f"
+    },
+    "permission.CMTV_UC_changeUsername.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "9eb15fd23111eb78f917f1363ed1bb09"
+    },
+    "permission.CMTV_UC_deleteAnyHistory.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "68548ce4bfb36bfada15a6fc44ce4fd3"
+    },
+    "permission.CMTV_UC_deleteOwnHistory.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "7d05f0f003251d60db09a83237add87f"
+    },
+    "permission.CMTV_UC_manageHistoryPrivacy.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "6c9f8c6d3996e1540e253b5a25cb6190"
+    },
+    "permission.CMTV_UC_viewUsernameChanges.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "4423b9a2a227a78f534a0845cabf8c30"
+    },
+    "permission_interface.CMTV_UsernameChange.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "08cc827786a153373812beb69a2b42a9"
+    },
+    "permission_interface.CMTV_UsernameChangeModeratorPermissions.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "3c4cfb0f57dc5cf26d6c5f63e948efdd"
+    },
+    "widget_def.CMTV_UC_username_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "08adff39489129f8fd679b0274fe6be8"
+    },
+    "widget_def_desc.CMTV_UC_username_changes.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "530e8bda4f550845ed68c0fce88e093f"
+    }
+}

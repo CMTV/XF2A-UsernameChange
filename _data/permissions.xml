@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+  <permission permission_group_id="CMTV_UC" permission_id="changeFrequency" permission_type="integer" depend_permission_id="changeUsername" interface_group_id="CMTV_UsernameChange" display_order="20"/>
+  <permission permission_group_id="CMTV_UC" permission_id="changeUsername" permission_type="flag" interface_group_id="CMTV_UsernameChange" display_order="10"/>
+  <permission permission_group_id="CMTV_UC" permission_id="deleteAnyHistory" permission_type="flag" interface_group_id="CMTV_UsernameChangeModeratorPermissions" display_order="10"/>
+  <permission permission_group_id="CMTV_UC" permission_id="deleteOwnHistory" permission_type="flag" depend_permission_id="changeUsername" interface_group_id="CMTV_UsernameChange" display_order="30"/>
+  <permission permission_group_id="CMTV_UC" permission_id="manageHistoryPrivacy" permission_type="flag" depend_permission_id="changeUsername" interface_group_id="CMTV_UsernameChange" display_order="60"/>
+  <permission permission_group_id="CMTV_UC" permission_id="viewUsernameChanges" permission_type="flag" interface_group_id="CMTV_UsernameChange" display_order="40"/>
+</permissions>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="account_details" modification_key="CMTV_UC_account_details" description="Adding &quot;Username&quot; field" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="$xf.visitor.canUploadAvatar()">]]></find>
+    <replace><![CDATA[<xf:include template="CMTV_UC_account_details" />
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="account_privacy" modification_key="CMTV_UC_account_privacy" description="Adding &quot;Who can see username change history&quot; privacy controls" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="$xf.visitor.canViewProfilePosts()">]]></find>
+    <replace><![CDATA[<xf:include template="CMTV_UC_account_privacy" />
+
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="helper_criteria" modification_key="CMTV_UC_helper_criteria" description="Addon's criteria" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:optgroup label="{{ phrase('avatar:') }}">]]></find>
+    <replace><![CDATA[<xf:optgroup label="{{ phrase('CMTV_UC_username_changes:') }}">
+	<xf:option name="user_criteria[CMTV_UC_change_count][rule]" value="CMTV_UC_change_count" selected="{$criteria.CMTV_UC_change_count}"
+			   label="{{ phrase('CMTV_UC_user_has_changed_username_at_least_x_times:') }}">
+		<xf:numberbox name="user_criteria[CMTV_UC_change_count][data][changes]" value="{$criteria.CMTV_UC_change_count.changes}"
+					  size="5" min="0" step="1" />
+	</xf:option>
+
+	<xf:option name="user_criteria[CMTV_UC_changes_maximum][rule]" value="CMTV_UC_changes_maximum" selected="{$criteria.CMTV_UC_changes_maximum}"
+			   label="{{ phrase('CMTV_UC_user_has_changed_username_no_more_than_x_times:') }}">
+		<xf:numberbox name="user_criteria[CMTV_UC_changes_maximum][data][changes]" value="{$criteria.CMTV_UC_changes_maximum.changes}"
+					  size="5" min="0" step="1" />
+	</xf:option>
+</xf:optgroup>
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="helper_js_global" modification_key="CMTV_UC_helper_js_global" description="Including addon's stylesheet" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--XF:CSS-->]]></find>
+    <replace><![CDATA[<xf:css src="CMTV_UC.less" />
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="member_tooltip" modification_key="CMTV_UC_member_tooltip" description="Adding &quot;See username changes&quot; button at the right of username on member tooltip" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:username user="$user" rich="true" notooltip="true" />]]></find>
+    <replace><![CDATA[$0
+
+<xf:include template="CMTV_UC_member_view" />]]></replace>
+  </modification>
+  <modification type="public" template="member_view" modification_key="CMTV_UC_member_view" description="Adding &quot;See username changes&quot; button at the right of username" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:username user="{$user}" rich="true" href="" />]]></find>
+    <replace><![CDATA[$0
+
+<xf:include template="CMTV_UC_member_view" />]]></replace>
+  </modification>
+  <modification type="admin" template="tools_rebuild" modification_key="CMTV_UC_tools_rebuild" description="Adding &quot;Recalculate username change counts&quot; job" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:rebuild_bottom]-->]]></find>
+    <replace><![CDATA[<xf:macro name="rebuild_job"
+		  arg-header="{{ phrase('CMTV_UC_rebuild_username_change_counts') }}"
+		  arg-job="CMTV\UsernameChange:UsernameChangesCount" />
+<!--[CMTV\UsernameChange:after_username_changes]-->
+
+$0]]></replace>
+  </modification>
+</template_modifications>

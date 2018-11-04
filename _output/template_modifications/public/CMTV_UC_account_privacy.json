@@ -1,0 +1,9 @@
+{
+    "template": "account_privacy",
+    "description": "Adding \"Who can see username change history\" privacy controls",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:if is=\"$xf.visitor.canViewProfilePosts()\">",
+    "replace": "<xf:include template=\"CMTV_UC_account_privacy\" />\n\n$0"
+}

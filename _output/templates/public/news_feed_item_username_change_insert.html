@@ -1,0 +1,8 @@
+<div class="contentRow-title">
+	{{ phrase('CMTV_UC_x_changed_username_to_y', {
+		'oldUsername': '<a href="' . link('members', $user) . '">' . $content.old_username . '</a>',
+		'newUsername': $content.new_username
+	}) }}
+</div>
+
+<div class="contentRow-minor"><xf:date time="{$newsFeed.event_date}" /></div>

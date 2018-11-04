@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content_type_fields>
+  <field content_type="username_change" field_name="entity">CMTV\UsernameChange:UsernameChange</field>
+  <field content_type="username_change" field_name="news_feed_handler_class">CMTV\UsernameChange\NewsFeed\UsernameChange</field>
+</content_type_fields>

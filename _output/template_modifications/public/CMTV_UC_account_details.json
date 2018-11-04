@@ -1,0 +1,9 @@
+{
+    "template": "account_details",
+    "description": "Adding \"Username\" field",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<xf:if is=\"$xf.visitor.canUploadAvatar()\">",
+    "replace": "<xf:include template=\"CMTV_UC_account_details\" />\n\n$0"
+}

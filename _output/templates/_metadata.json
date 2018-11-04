@@ -1,0 +1,47 @@
+{
+    "admin/widget_def_options_CMTV_UC_username_changes.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "1c22a17f1b95952a5ff2ea24d20355b3"
+    },
+    "public/CMTV_UC.less": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "38fbc490edf19ab0fcef8f2733da9a13"
+    },
+    "public/CMTV_UC_account_details.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "76a638be83fd77590e6a51fccc7a5364"
+    },
+    "public/CMTV_UC_account_privacy.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "6e7161ab311658aec68517b987a167f9"
+    },
+    "public/CMTV_UC_history_clear.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "0b4ce41aa4d26df26a58d1960f8b3c7f"
+    },
+    "public/CMTV_UC_member_username_changes.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "0c48100585e5dfac29686104d48d5ca7"
+    },
+    "public/CMTV_UC_member_view.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "7b386f9678c979021866c0520b81fdba"
+    },
+    "public/CMTV_UC_widget_new_username_changes.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "4b02dadd30139285bb5077bfda655c56"
+    },
+    "public/news_feed_item_username_change_insert.html": {
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "15b50c5cb06fd77800bba7c105849039"
+    }
+}

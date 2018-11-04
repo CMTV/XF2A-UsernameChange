@@ -1,0 +1,6 @@
+<xf:if is="$xf.visitor.canManageUsernameChangePrivacy()">
+	<xf:macro template="account_privacy" name="privacy_option"
+			  arg-user="{$xf.visitor}"
+			  arg-name="CMTV_UC_allow_view_username_changes"
+			  arg-label="{{ phrase('CMTV_UC_view_your_username_changes:') }}" />
+</xf:if>

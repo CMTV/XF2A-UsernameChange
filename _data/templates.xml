@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="widget_def_options_CMTV_UC_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[<hr class="formRowSep" />
+
+<xf:numberboxrow name="options[limit]" value="{$options.limit}" min="1"
+	label="{{ phrase('maximum_entries') }}" />
+
+<xf:radiorow name="options[style]" value="{{ $options.style ?: 'simple' }}"
+	label="{{ phrase('display_style') }}">
+
+	<xf:option value="simple"
+		label="{{ phrase('simple') }}"
+		hint="{{ phrase('widget_display_simple_explain') }}" />
+	<xf:option value="full"
+		label="{{ phrase('full') }}"
+		hint="{{ phrase('CMTV_UC_widget_full_style_explain') }}" />
+</xf:radiorow>]]></template>
+  <template type="public" title="CMTV_UC.less" version_id="1000070" version_string="1.0.0"><![CDATA[.CMTV_UC
+{
+	&-show
+	{
+		background: transparent !important;
+		border: none !important;
+				
+		padding-top: 0;
+		padding-bottom: 0;
+		
+		position: relative;
+		top: -3px;
+		left: -7px;
+	}
+}
+
+.usernameChangeItem
+{
+	.old-username,
+	.contentRow-minor.contentRow-minor--hideLinks .old-username
+	{
+		color: @xf-textColor;
+	}
+}]]></template>
+  <template type="public" title="CMTV_UC_account_details" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:if is="$xf.visitor.canChangeUsername()">
+	<xf:formrow label="{{ phrase('user_name') }}">	
+		<xf:textbox name="user[username]" value="{{ $xf.visitor.username }}"
+					disabled="{{ !$xf.visitor.isTimeLimitExpired() }}"
+					maxlength="{{ max_length($xf.visitor, 'username') }}" />
+		
+		<div class="formRow-explain">
+			{$CMTV_UC_explain}
+		</div>
+
+		<xf:if is="($xf.visitor.canDeleteOwnUsernameChangeHistory() || $xf.visitor.canDeleteAnyUsernameChangeHistory()) && $xf.visitor.hasUsernameChangeHistory()">
+			<br>
+			{{ phrase('CMTV_UC_you_have_made_x_username_changes', {'number': $xf.visitor.CMTV_UC_username_changes}) }} <xf:button href="{{ link('username-changes', $xf.visitor, {'edit': 1}) }}" class="button--link">{{ phrase('edit_history') }}</xf:button>
+		</xf:if>
+	</xf:formrow>
+</xf:if>]]></template>
+  <template type="public" title="CMTV_UC_account_privacy" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:if is="$xf.visitor.canManageUsernameChangePrivacy()">
+	<xf:macro template="account_privacy" name="privacy_option"
+			  arg-user="{$xf.visitor}"
+			  arg-name="CMTV_UC_allow_view_username_changes"
+			  arg-label="{{ phrase('CMTV_UC_view_your_username_changes:') }}" />
+</xf:if>]]></template>
+  <template type="public" title="CMTV_UC_history_clear" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('confirm_action') }}</xf:title>
+
+<xf:form action="{{ link('username-changes/clear', $user) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				{{ phrase('please_confirm_that_you_want_to_delete_following:') }}
+				<strong>{{ phrase('CMTV_UC_x_username_changes', { 'total': $user.CMTV_UC_username_changes }) }}</strong>
+			</xf:inforow>
+		</div>
+		<xf:submitrow rowtype="simple" icon="delete" />
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="CMTV_UC_member_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('CMTV_UC_member_x_username_changes', {'name': $user.username}) }}</xf:title>
+
+<xf:breadcrumb href="{{ link('members', $user) }}">{$user.username}</xf:breadcrumb>
+
+<xf:if is="$usernameChanges is not empty">
+	
+	<xf:pageaction>
+		<xf:if is="$xf.visitor.canDeleteOwnUsernameChangeHistory() || $xf.visitor.canDeleteAnyUsernameChangeHistory()">
+			<xf:if is="!$editView">
+				<xf:button href="{{ link('username-changes', $user, {'edit': 1}) }}" icon="edit">{{ phrase('edit_history') }}</xf:button>
+			</xf:if>
+
+			<xf:button href="{{ link('username-changes/clear', $user) }}" icon="delete" overlay="true">{{ phrase('CMTV_UC_clear_history') }}</xf:button>
+		</xf:if>
+	</xf:pageaction>
+	
+	<xf:form action="{{ link(($editView ? 'username-changes/edit' : ''), $user) }}" class="block">
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:datarow rowtype="header">
+						<xf:if is="$editView"><xf:cell></xf:cell></xf:if>
+						<xf:cell>{{ phrase('CMTV_UC_old_username') }}</xf:cell>
+						<xf:cell>{{ phrase('CMTV_UC_new_username') }}</xf:cell>
+						<xf:cell>{{ phrase('CMTV_UC_changed') }}</xf:cell>
+					</xf:datarow>
+					<xf:foreach loop="$usernameChanges" value="$usernameChange">
+						<xf:macro name="item" arg-usernameChange="{$usernameChange}" arg-editView="{$editView}" />
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			
+			<div class="block-footer block-footer--split">
+				<span class="block-footer-counter">
+					{{ phrase('CMTV_UC_x_username_changes_in_total', { 'total': $user.CMTV_UC_username_changes }) }}
+				</span>
+				<xf:if is="$editView">
+					<span class="block-footer-controls"><xf:button type="submit" icon="delete" /></span>
+				</xf:if>
+			</div>
+		</div>
+	</xf:form>
+<xf:else />
+	<div class="blockMessage">{{ phrase('CMTV_UC_x_has_empty_username_change_history', {'name': $user.username}) }}</div>
+</xf:if>
+
+<xf:macro name="item" arg-usernameChange="!" arg-editView="!">
+	<xf:datarow>
+		<xf:if is="$editView">
+			<xf:toggle name="selected[]" value="{$usernameChange.change_id}" />
+		</xf:if>
+		<xf:cell class="dataList-minorRow">{$usernameChange.old_username}</xf:cell>
+		<xf:cell class="dataList-mainRow">{$usernameChange.new_username}</xf:cell>
+		<xf:cell><xf:date time="$usernameChange.change_date" /></xf:cell>
+	</xf:datarow>
+</xf:macro>]]></template>
+  <template type="public" title="CMTV_UC_member_view" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:if is="$xf.visitor.canViewUsernameChanges() && $user.hasUsernameChangeHistory()">
+	<xf:button class="button--link CMTV_UC-show" data-xf-click="menu"><i class="fa fa-caret-down"></i></xf:button>
+	<div class="menu CMTV_UC-data" data-menu="menu" aria-hidden="true">
+		<div class="menu-content">
+			<h4 class="menu-header">{{ phrase('CMTV_UC_also_known_as') }}</h4>
+			<xf:foreach loop="$user.recent_username_changes" value="$usernameChange">
+				<div class="menu-linkRow"
+					 title="{{ phrase('CMTV_UC_used_till_change_in') . ' ' . date_time($usernameChange.change_date) }}">
+					{$usernameChange.old_username}
+				</div>
+			</xf:foreach>
+			<xf:if contentcheck="true">
+				<div class="menu-footer menu-footer--split">
+					<span class="menu-footer-main">
+						<xf:contentcheck>
+							<xf:if is="$user.CMTV_UC_username_changes > $xf.options.CMTV_UC_recentUsernameChanges">
+								<a href="{{ link('username-changes', $user) }}">{{ phrase('CMTV_UC_view_all') }}</a>
+							</xf:if>
+						</xf:contentcheck>
+					</span>
+					<span class="menu-footer-opposite">
+						<xf:contentcheck>
+							<xf:if is="$xf.visitor.canDeleteOwnUsernameChangeHistory() || $xf.visitor.canDeleteAnyUsernameChangeHistory()">
+								<a href="{{ link('username-changes', $user, {'edit': 1}) }}">{{ phrase('edit_history') }}</a>
+							</xf:if>
+						</xf:contentcheck>
+					</span>
+				</div>
+			</xf:if>
+		</div>
+	</div>
+</xf:if>]]></template>
+  <template type="public" title="CMTV_UC_widget_new_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:if is="$usernameChanges is not empty">
+	<div class="block"{{ widget_data($widget) }}>
+		<div class="block-container">
+			<xf:if is="$style == 'full'">
+				<h3 class="block-header">{$title}</h3>				
+				<div class="block-body">
+					<xf:css src="structured_list.less" />
+
+					<div class="structItemContainer">
+						<xf:foreach loop="$usernameChanges" value="$usernameChange">
+							<xf:macro name="full_item" arg-usernameChange="{$usernameChange}" />
+						</xf:foreach>
+					</div>
+				</div>
+			<xf:else />
+				<h3 class="block-minorHeader">{$title}</h3>
+				<ul class="block-body">
+					<xf:foreach loop="$usernameChanges" value="$usernameChange">
+						<xf:macro name="simple_item" arg-usernameChange="{$usernameChange}" />
+					</xf:foreach>
+				</ul>
+			</xf:if>
+		</div>
+	</div>
+	
+	<xf:css src="CMTV_UC.less" />
+</xf:if>
+
+<xf:macro name="full_item" arg-usernameChange="!">
+	<div class="structItem usernameChangeItem structItem--middle">
+		<div class="structItem-cell structItem-cell--icon">
+			<div class="structItem-iconContainer">
+				<xf:avatar user="$usernameChange.User" size="xs" />
+			</div>
+		</div>
+		<div class="structItem-cell structItem-cell--main">
+			<div class="structItem-title new-username">
+				<xf:username user="{$usernameChange.User}"
+							 username="{$usernameChange.new_username}"
+							 title="{{ phrase('CMTV_UC_new_username') }}"/>
+			</div>
+			<div class="structItem-minor old-username">
+				<xf:username user="{$usernameChange.User}" 
+							 username="{$usernameChange.old_username}"
+							 title="{{ phrase('CMTV_UC_old_username') }}"/>
+			</div>
+		</div>
+		<div class="structItem-cell structItem-cell--meta" title="{{ phrase('CMTV_UC_number_of_username_changes') }}">
+			<dl class="pairs pairs--justified">
+				<dt>{{ phrase('CMTV_UC_changes') }}</dt>
+				<dd>{{ $usernameChange.User.CMTV_UC_username_changes }}</dd>
+			</dl>
+		</div>
+		<div class="structItem-cell structItem-cell--latest">
+			<a href="{{ link('username-changes', $usernameChange.User) }}">
+				<xf:date time="{$usernameChange.change_date}" />
+			</a>
+		</div>
+	</div>
+</xf:macro>
+
+<xf:macro name="simple_item" arg-usernameChange="!">
+	<li class="block-row usernameChangeItem">
+		<div class="contentRow">
+			<div class="contentRow-figure">
+				<xf:avatar user="$usernameChange.User" size="xxs" />
+			</div>
+			<div class="contentRow-main contentRow-main--close">
+				<xf:username user="{$usernameChange.User}" class="new-username"
+							 username="{$usernameChange.new_username}"
+							 title="{{ phrase('CMTV_UC_new_username') }}"/>
+
+				<div class="contentRow-minor contentRow-minor--hideLinks">
+					<ul class="listInline listInline--bullet">
+						<li>
+							<xf:username user="{$usernameChange.User}" class="old-username"
+										 username="{$usernameChange.old_username}"
+										 title="{{ phrase('CMTV_UC_old_username') }}"/>
+						</li>
+						<li>
+							<a href="{{ link('username-changes', $usernameChange.User) }}">
+								<xf:date time="{$usernameChange.change_date}" />
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</li>
+</xf:macro>]]></template>
+  <template type="public" title="news_feed_item_username_change_insert" version_id="1000070" version_string="1.0.0"><![CDATA[<div class="contentRow-title">
+	{{ phrase('CMTV_UC_x_changed_username_to_y', {
+		'oldUsername': '<a href="' . link('members', $user) . '">' . $content.old_username . '</a>',
+		'newUsername': $content.new_username
+	}) }}
+</div>
+
+<div class="contentRow-minor"><xf:date time="{$newsFeed.event_date}" /></div>]]></template>
+</templates>

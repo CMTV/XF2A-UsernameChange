@@ -1,0 +1,20 @@
+{
+    "CMTV_UC-changeFrequency.json": {
+        "hash": "95e239a3eecedfa3507bdc24a10a55d2"
+    },
+    "CMTV_UC-changeUsername.json": {
+        "hash": "9cb141cdd6bb32a27507a0aa1f774b42"
+    },
+    "CMTV_UC-deleteAnyHistory.json": {
+        "hash": "1d6e3203c41ff4afe3ac470ff66a0547"
+    },
+    "CMTV_UC-deleteOwnHistory.json": {
+        "hash": "370a8d9feb01584fdd133fae8607658d"
+    },
+    "CMTV_UC-manageHistoryPrivacy.json": {
+        "hash": "efbf81f6676cea219689e493bf7d5fff"
+    },
+    "CMTV_UC-viewUsernameChanges.json": {
+        "hash": "c6f129b9927f03322eaee91542ca9e3e"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "event_id": "criteria_user",
+    "execute_order": 10,
+    "callback_class": "CMTV\\UsernameChange\\Listener",
+    "callback_method": "criteriaUser",
+    "active": true,
+    "hint": "",
+    "description": "Addon's criteria"
+}

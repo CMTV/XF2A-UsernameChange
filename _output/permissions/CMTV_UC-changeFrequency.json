@@ -1,0 +1,6 @@
+{
+    "permission_type": "integer",
+    "interface_group_id": "CMTV_UsernameChange",
+    "display_order": 20,
+    "depend_permission_id": "changeUsername"
+}

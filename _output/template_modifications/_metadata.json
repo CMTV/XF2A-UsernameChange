@@ -1,0 +1,23 @@
+{
+    "admin/CMTV_UC_helper_criteria.json": {
+        "hash": "9f607df59b770a0379fd79616a5f197d"
+    },
+    "admin/CMTV_UC_tools_rebuild.json": {
+        "hash": "d2b60b652ff2a491f39c23a570b8b4f3"
+    },
+    "public/CMTV_UC_account_details.json": {
+        "hash": "3b5cf5c047b806cbc29c1acf869949fc"
+    },
+    "public/CMTV_UC_account_privacy.json": {
+        "hash": "b2469985ff286f4c9e0ccb20006c1421"
+    },
+    "public/CMTV_UC_helper_js_global.json": {
+        "hash": "b765aecc9476811eb14b85dc15b6aed5"
+    },
+    "public/CMTV_UC_member_tooltip.json": {
+        "hash": "bb648f362bc98ad70d89a842d63f561d"
+    },
+    "public/CMTV_UC_member_view.json": {
+        "hash": "2d54ad518ed7715816ceddb785d12c2b"
+    }
+}

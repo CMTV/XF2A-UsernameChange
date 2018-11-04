@@ -1,0 +1,15 @@
+<hr class="formRowSep" />
+
+<xf:numberboxrow name="options[limit]" value="{$options.limit}" min="1"
+	label="{{ phrase('maximum_entries') }}" />
+
+<xf:radiorow name="options[style]" value="{{ $options.style ?: 'simple' }}"
+	label="{{ phrase('display_style') }}">
+
+	<xf:option value="simple"
+		label="{{ phrase('simple') }}"
+		hint="{{ phrase('widget_display_simple_explain') }}" />
+	<xf:option value="full"
+		label="{{ phrase('full') }}"
+		hint="{{ phrase('CMTV_UC_widget_full_style_explain') }}" />
+</xf:radiorow>
