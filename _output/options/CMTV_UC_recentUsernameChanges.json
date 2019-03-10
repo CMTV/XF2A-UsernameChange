@@ -7,6 +7,6 @@
     "validation_method": "",
     "default_value": "5",
     "relations": {
-        "users": 1000
+        "users": 800
     }
 }

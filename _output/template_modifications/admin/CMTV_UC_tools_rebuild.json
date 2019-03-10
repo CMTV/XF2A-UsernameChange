@@ -1,9 +1,9 @@
 {
     "template": "tools_rebuild",
-    "description": "Adding \"Recalculate username change counts\" job",
+    "description": "Adding \"Rebuild username changes\" job",
     "execution_order": 10,
     "enabled": true,
     "action": "str_replace",
-    "find": "<!--[XF:rebuild_bottom]-->",
-    "replace": "<xf:macro name=\"rebuild_job\"\n\t\t  arg-header=\"{{ phrase('CMTV_UC_rebuild_username_change_counts') }}\"\n\t\t  arg-job=\"CMTV\\UsernameChange:UsernameChangesCount\" />\n<!--[CMTV\\UsernameChange:after_username_changes]-->\n\n$0"
+    "find": "<!--[XF:after_users]-->",
+    "replace": "$0\n\n<xf:macro name=\"rebuild_job\"\n\t\t  arg-header=\"{{ phrase('CMTV_UC_rebuild_username_changes') }}\"\n\t\t  arg-job=\"CMTV\\UsernameChange:UsernameChange\" />\n<!--[CMTV_UC:after_username_changes]-->"
 }

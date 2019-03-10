@@ -1,0 +1,61 @@
+<xf:macro name="menu" arg-user="!">
+	<div class="menu CMTV_UC-menu" data-menu="menu" aria-hidden="true">
+		<div class="menu-content">
+			<h4 class="menu-header">{{ phrase('CMTV_UC_previous_usernames') }}</h4>
+			
+			<xf:foreach loop="$user.recent_username_changes" value="$uc">
+				<div class="menu-linkRow"
+					 title="{{ phrase('CMTV_UC_used_till_change_in') . ' ' . date_time($uc.change_date) }}">
+					{$uc.old_username}
+				</div>
+			</xf:foreach>
+			
+			<xf:set var="$canViewMore" 		value="{{ $user.cmtv_uc_username_changes > $xf.options.CMTV_UC_recentUsernameChanges }}" />
+			<xf:set var="$canEditHistory" 	value="{{ $xf.visitor.canEditUsernameChangesHistory($user) }}" />
+			
+			<xf:if is="$canViewMore or $canEditHistory">
+				<div class="menu-footer menu-footer--split">
+					<span class="menu-footer-main">
+						<xf:if is="$canViewMore">
+							<a href="{{ link('members/username-changes', $user) }}">{{ phrase('CMTV_UC_view_all') }}</a>
+						</xf:if>
+					</span>
+					
+					<span class="menu-footer-opposite">
+						<xf:if is="$canEditHistory">
+							<a href="{{ link('members/username-changes', $user, {'edit': 1}) }}">{{ phrase('edit_history') }}</a>
+						</xf:if>
+					</span>
+				</div>
+			</xf:if>
+		</div>
+	</div>
+</xf:macro>
+
+<xf:macro name="full" arg-user="!">
+	<xf:if is="$xf.visitor.canViewUsernameChangesHistory($user) && $user.cmtv_uc_username_changes > 0">
+		<xf:button class="button--link menuTrigger"
+				   data-xf-click="menu"
+				   aria-label="{{ phrase('CMTV_UC_username_changes') }}"
+				   aria-expanded="false"
+				   aria-haspopup="true">
+			<xf:fa icon="fa-font" />
+		</xf:button>
+		
+		<xf:macro name="menu" arg-user="{$user}" />
+	</xf:if>
+</xf:macro>
+
+<xf:macro name="mini" arg-user="!">
+	<xf:if is="$xf.visitor.canViewUsernameChangesHistory($user) && $user.cmtv_uc_username_changes > 0">
+		<xf:button class="button--link button--small menuTrigger"
+				   data-xf-click="menu"
+				   aria-label="{{ phrase('CMTV_UC_username_changes') }}"
+				   aria-expanded="false"
+				   aria-haspopup="true">
+			<xf:fa icon="fa-font" />
+		</xf:button>
+		
+		<xf:macro name="menu" arg-user="{$user}" />
+	</xf:if>
+</xf:macro>

@@ -1,90 +1,92 @@
 <xf:if is="$usernameChanges is not empty">
-	<div class="block"{{ widget_data($widget) }}>
+	<div class="block" {{ widget_data($widget) }}>
 		<div class="block-container">
 			<xf:if is="$style == 'full'">
-				<h3 class="block-header">{$title}</h3>				
-				<div class="block-body">
-					<xf:css src="structured_list.less" />
-
-					<div class="structItemContainer">
-						<xf:foreach loop="$usernameChanges" value="$usernameChange">
-							<xf:macro name="full_item" arg-usernameChange="{$usernameChange}" />
-						</xf:foreach>
-					</div>
-				</div>
+				<xf:macro name="full_style" arg-title="{$title}" arg-usernameChanges="{$usernameChanges}" />
 			<xf:else />
-				<h3 class="block-minorHeader">{$title}</h3>
-				<ul class="block-body">
-					<xf:foreach loop="$usernameChanges" value="$usernameChange">
-						<xf:macro name="simple_item" arg-usernameChange="{$usernameChange}" />
-					</xf:foreach>
-				</ul>
+				<xf:macro name="simple_style" arg-title="{$title}" arg-usernameChanges="{$usernameChanges}" />
 			</xf:if>
 		</div>
 	</div>
-	
-	<xf:css src="CMTV_UC.less" />
 </xf:if>
 
-<xf:macro name="full_item" arg-usernameChange="!">
-	<div class="structItem usernameChangeItem structItem--middle">
-		<div class="structItem-cell structItem-cell--icon">
-			<div class="structItem-iconContainer">
-				<xf:avatar user="$usernameChange.User" size="xs" />
-			</div>
-		</div>
-		<div class="structItem-cell structItem-cell--main">
-			<div class="structItem-title new-username">
-				<xf:username user="{$usernameChange.User}"
-							 username="{$usernameChange.new_username}"
-							 title="{{ phrase('CMTV_UC_new_username') }}"/>
-			</div>
-			<div class="structItem-minor old-username">
-				<xf:username user="{$usernameChange.User}" 
-							 username="{$usernameChange.old_username}"
-							 title="{{ phrase('CMTV_UC_old_username') }}"/>
-			</div>
-		</div>
-		<div class="structItem-cell structItem-cell--meta" title="{{ phrase('CMTV_UC_number_of_username_changes') }}">
-			<dl class="pairs pairs--justified">
-				<dt>{{ phrase('CMTV_UC_changes') }}</dt>
-				<dd>{{ $usernameChange.User.CMTV_UC_username_changes }}</dd>
-			</dl>
-		</div>
-		<div class="structItem-cell structItem-cell--latest">
-			<a href="{{ link('username-changes', $usernameChange.User) }}">
-				<xf:date time="{$usernameChange.change_date}" />
-			</a>
+<xf:macro name="full_style" arg-title="!" arg-usernameChanges="!">
+	<h3 class="block-header">{$title}</h3>
+	<div class="block-body">
+		<xf:css src="structured_list.less" />
+
+		<div class="structItemContainer">
+			<xf:foreach loop="$usernameChanges" value="$usernameChange">
+				<div class="structItem usernameChangeItem structItem--middle CMTV_UC-ucItem CMTV_UC-ucItem--full">
+					<div class="structItem-cell structItem-cell--icon">
+						<div class="structItem-iconContainer">
+							<xf:avatar user="$usernameChange.User" size="xs" />
+						</div>
+					</div>
+					
+					<div class="structItem-cell structItem-cell--main">
+						<div class="structItem-title new-username">
+							<xf:username user="$usernameChange.User"
+										 username="{$usernameChange.new_username}"
+										 title="{{ phrase('CMTV_UC_new_username') }}"/>
+						</div>
+						<div class="structItem-minor old-username">
+							<xf:username user="$usernameChange.User" 
+										 username="{$usernameChange.old_username}"
+										 title="{{ phrase('CMTV_UC_old_username') }}"/>
+						</div>
+					</div>
+					
+					<div class="structItem-cell structItem-cell--meta changesNumContainer" title="{{ phrase('CMTV_UC_number_of_username_changes') }}">
+						<dl class="pairs pairs--rows">
+							<dt>{{ phrase('CMTV_UC_changes') }}</dt>
+							<dd>{{ $usernameChange.User.cmtv_uc_username_changes }}</dd>
+						</dl>
+					</div>
+					
+					<div class="structItem-cell structItem-cell--latest">
+						<a href="{{ link('members/username-changes', $usernameChange.User) }}">
+							<xf:date time="{$usernameChange.change_date}" />
+						</a>
+					</div>
+				</div>
+			</xf:foreach>
 		</div>
 	</div>
 </xf:macro>
 
-<xf:macro name="simple_item" arg-usernameChange="!">
-	<li class="block-row usernameChangeItem">
-		<div class="contentRow">
-			<div class="contentRow-figure">
-				<xf:avatar user="$usernameChange.User" size="xxs" />
-			</div>
-			<div class="contentRow-main contentRow-main--close">
-				<xf:username user="{$usernameChange.User}" class="new-username"
-							 username="{$usernameChange.new_username}"
-							 title="{{ phrase('CMTV_UC_new_username') }}"/>
+<xf:macro name="simple_style" arg-title="!" arg-usernameChanges="!">
+	<h3 class="block-minorHeader">{$title}</h3>
+	<ul class="block-body">
+		<xf:foreach loop="$usernameChanges" value="$usernameChange">
+			<li class="block-row CMTV_UC-ucItem CMTV_UC-ucItem--simple">
+				<div class="contentRow">
+					<div class="contentRow-figure">
+						<xf:avatar user="$usernameChange.User" size="xxs" />
+					</div>
+					
+					<div class="contentRow-main contentRow-main--close">
+						<xf:username user="$usernameChange.User" class="newUsername" 
+									 username="{$usernameChange.new_username}"
+									 title="{{ phrase('CMTV_UC_new_username') }}" />
 
-				<div class="contentRow-minor contentRow-minor--hideLinks">
-					<ul class="listInline listInline--bullet">
-						<li>
-							<xf:username user="{$usernameChange.User}" class="old-username"
-										 username="{$usernameChange.old_username}"
-										 title="{{ phrase('CMTV_UC_old_username') }}"/>
-						</li>
-						<li>
-							<a href="{{ link('username-changes', $usernameChange.User) }}">
-								<xf:date time="{$usernameChange.change_date}" />
-							</a>
-						</li>
-					</ul>
+						<div class="contentRow-minor contentRow-minor--hideLinks">
+							<ul class="listInline listInline--bullet">
+								<li>
+									<xf:username user="$usernameChange.User" class="oldUsername"
+												 username="{$usernameChange.old_username}"
+												 title="{{ phrase('CMTV_UC_old_username') }}"/>
+								</li>
+								<li>
+									<a href="{{ link('members/username-changes', $usernameChange.User) }}">
+										<xf:date time="{$usernameChange.change_date}" />
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	</li>
+			</li>
+		</xf:foreach>
+	</ul>
 </xf:macro>

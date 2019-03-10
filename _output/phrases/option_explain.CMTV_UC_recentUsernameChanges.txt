@@ -1,1 +1,1 @@
-Limit the number of recent username changes showing in users profiles. All username changes can still be viewed at "X's username changes" page.
+A number of most recent username changes showing in "Also known as" box.

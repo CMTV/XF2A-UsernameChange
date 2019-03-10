@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <code_event_listeners>
-  <listener event_id="criteria_user" execute_order="10" callback_class="CMTV\UsernameChange\Listener" callback_method="criteriaUser" active="1" description="Addon's criteria"/>
+  <listener event_id="criteria_user" execute_order="10" callback_class="CMTV\UsernameChange\EventsListener" callback_method="criteriaUser" active="1" description="Handling custom addon criteria"/>
 </code_event_listeners>

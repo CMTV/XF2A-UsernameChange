@@ -1,6 +1,0 @@
-{
-    "permission_type": "flag",
-    "interface_group_id": "CMTV_UsernameChangeModeratorPermissions",
-    "display_order": 10,
-    "depend_permission_id": ""
-}

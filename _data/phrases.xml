@@ -1,44 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phrases>
-  <phrase title="CMTV_UC_also_known_as" version_id="1000070" version_string="1.0.0"><![CDATA[Also known as]]></phrase>
-  <phrase title="CMTV_UC_changed" version_id="1000070" version_string="1.0.0"><![CDATA[Changed]]></phrase>
-  <phrase title="CMTV_UC_changes" version_id="1000070" version_string="1.0.0"><![CDATA[Changes]]></phrase>
-  <phrase title="CMTV_UC_clear_history" version_id="1000070" version_string="1.0.0"><![CDATA[Clear history]]></phrase>
-  <phrase title="CMTV_UC_member_limits_viewing_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[This member limits who may view their username changes.]]></phrase>
-  <phrase title="CMTV_UC_member_x_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[{name}'s username changes]]></phrase>
-  <phrase title="CMTV_UC_new_username" version_id="1000070" version_string="1.0.0"><![CDATA[New username]]></phrase>
-  <phrase title="CMTV_UC_number_of_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[Number of username changes]]></phrase>
-  <phrase title="CMTV_UC_old_username" version_id="1000070" version_string="1.0.0"><![CDATA[Old username]]></phrase>
-  <phrase title="CMTV_UC_please_select_at_least_one_username_change_to_delete" version_id="1000070" version_string="1.0.0"><![CDATA[Please select at least one username change to delete.]]></phrase>
-  <phrase title="CMTV_UC_rebuild_username_change_counts" version_id="1000070" version_string="1.0.0"><![CDATA[Rebuild username change counts]]></phrase>
-  <phrase title="CMTV_UC_used_till_change_in" version_id="1000070" version_string="1.0.0"><![CDATA[Used till change in]]></phrase>
-  <phrase title="CMTV_UC_user_has_changed_username_at_least_x_times" version_id="1000070" version_string="1.0.0"><![CDATA[User has changed their username at least X times]]></phrase>
-  <phrase title="CMTV_UC_user_has_changed_username_no_more_than_x_times" version_id="1000070" version_string="1.0.0"><![CDATA[User has changed their username no more than X times]]></phrase>
-  <phrase title="CMTV_UC_username_change_count_rebuild" version_id="1000070" version_string="1.0.0"><![CDATA[Recalculating username change counts]]></phrase>
-  <phrase title="CMTV_UC_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[Username changes]]></phrase>
-  <phrase title="CMTV_UC_username_changes_in_history" version_id="1000070" version_string="1.0.0"><![CDATA[Username changes in history]]></phrase>
-  <phrase title="CMTV_UC_username_days_explain" version_id="1000070" version_string="1.0.0"><![CDATA[You can change your username one time in {days} days.]]></phrase>
-  <phrase title="CMTV_UC_username_disabled_explain" version_id="1000070" version_string="1.0.0"><![CDATA[You will be able to change username in {nextChange}.]]></phrase>
-  <phrase title="CMTV_UC_username_unlimited_explain" version_id="1000070" version_string="1.0.0"><![CDATA[You can change your username freely.]]></phrase>
-  <phrase title="CMTV_UC_view_all" version_id="1000070" version_string="1.0.0"><![CDATA[View all]]></phrase>
-  <phrase title="CMTV_UC_view_your_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[View your username changes]]></phrase>
-  <phrase title="CMTV_UC_widget_default_title" version_id="1000070" version_string="1.0.0"><![CDATA[Latest username changes]]></phrase>
-  <phrase title="CMTV_UC_widget_full_style_explain" version_id="1000070" version_string="1.0.0"><![CDATA[A full size view, displaying similar to on X's username change history page.]]></phrase>
-  <phrase title="CMTV_UC_x_changed_username_to_y" version_id="1000070" version_string="1.0.0"><![CDATA[{oldUsername} changed their username to <strong>{newUsername}</strong>.]]></phrase>
-  <phrase title="CMTV_UC_x_has_empty_username_change_history" version_id="1000070" version_string="1.0.0"><![CDATA[{name} has empty username change history.]]></phrase>
-  <phrase title="CMTV_UC_x_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[{total} username changes]]></phrase>
-  <phrase title="CMTV_UC_x_username_changes_in_total" version_id="1000070" version_string="1.0.0"><![CDATA[{total} username changes in total]]></phrase>
-  <phrase title="CMTV_UC_you_have_made_x_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[You have made {number} username changes]]></phrase>
-  <phrase title="option.CMTV_UC_recentUsernameChanges" version_id="1000070" version_string="1.0.0"><![CDATA[Recent username changes]]></phrase>
-  <phrase title="option_explain.CMTV_UC_recentUsernameChanges" version_id="1000070" version_string="1.0.0"><![CDATA[Limit the number of recent username changes showing in users profiles. All username changes can still be viewed at "X's username changes" page.]]></phrase>
-  <phrase title="permission.CMTV_UC_changeFrequency" version_id="1000070" version_string="1.0.0"><![CDATA[Days between username changes]]></phrase>
-  <phrase title="permission.CMTV_UC_changeUsername" version_id="1000070" version_string="1.0.0"><![CDATA[Change username]]></phrase>
-  <phrase title="permission.CMTV_UC_deleteAnyHistory" version_id="1000070" version_string="1.0.0"><![CDATA[Delete any username change history]]></phrase>
-  <phrase title="permission.CMTV_UC_deleteOwnHistory" version_id="1000070" version_string="1.0.0"><![CDATA[Delete own username change history]]></phrase>
-  <phrase title="permission.CMTV_UC_manageHistoryPrivacy" version_id="1000070" version_string="1.0.0"><![CDATA[Manage username change history privacy]]></phrase>
-  <phrase title="permission.CMTV_UC_viewUsernameChanges" version_id="1000070" version_string="1.0.0"><![CDATA[View username changes]]></phrase>
-  <phrase title="permission_interface.CMTV_UsernameChange" version_id="1000070" version_string="1.0.0"><![CDATA[Username Change]]></phrase>
-  <phrase title="permission_interface.CMTV_UsernameChangeModeratorPermissions" version_id="1000070" version_string="1.0.0"><![CDATA[Username Change moderator permissions]]></phrase>
-  <phrase title="widget_def.CMTV_UC_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[New username changes]]></phrase>
-  <phrase title="widget_def_desc.CMTV_UC_username_changes" version_id="1000070" version_string="1.0.0"><![CDATA[Displays a block containing a list of X recent username changes.]]></phrase>
+  <phrase title="CMTV_UC_changed" version_id="2010070" version_string="2.1.0"><![CDATA[Changed]]></phrase>
+  <phrase title="CMTV_UC_changes" version_id="2010070" version_string="2.1.0"><![CDATA[Changes]]></phrase>
+  <phrase title="CMTV_UC_clear_history" version_id="2010070" version_string="2.1.0"><![CDATA[Clear history]]></phrase>
+  <phrase title="CMTV_UC_latest_username_change_date" version_id="2010070" version_string="2.1.0"><![CDATA[Latest username change date]]></phrase>
+  <phrase title="CMTV_UC_member_limits_viewing_username_changes" version_id="2010070" version_string="2.1.0"><![CDATA[This member limits who may view their username changes.]]></phrase>
+  <phrase title="CMTV_UC_new_username" version_id="2010070" version_string="2.1.0"><![CDATA[New username]]></phrase>
+  <phrase title="CMTV_UC_normal_view" version_id="2010070" version_string="2.1.0"><![CDATA[Normal view]]></phrase>
+  <phrase title="CMTV_UC_number_of_username_changes" version_id="2010070" version_string="2.1.0"><![CDATA[Number of username changes]]></phrase>
+  <phrase title="CMTV_UC_old_username" version_id="2010070" version_string="2.1.0"><![CDATA[Old username]]></phrase>
+  <phrase title="CMTV_UC_please_select_at_least_one_username_change_to_delete" version_id="2010070" version_string="2.1.0"><![CDATA[Please select at least one username change to delete]]></phrase>
+  <phrase title="CMTV_UC_previous_usernames" version_id="2010070" version_string="2.1.0"><![CDATA[Previous usernames]]></phrase>
+  <phrase title="CMTV_UC_rebuild_username_changes" version_id="2010070" version_string="2.1.0"><![CDATA[Rebuild username changes]]></phrase>
+  <phrase title="CMTV_UC_used_till_change_in" version_id="2010070" version_string="2.1.0"><![CDATA[Used till change in]]></phrase>
+  <phrase title="CMTV_UC_user_has_changed_username_at_least_x_times" version_id="2010070" version_string="2.1.0"><![CDATA[User has changed their username at least X times]]></phrase>
+  <phrase title="CMTV_UC_user_has_changed_username_no_more_than_x_times" version_id="2010070" version_string="2.1.0"><![CDATA[User has changed their username no more than X times]]></phrase>
+  <phrase title="CMTV_UC_username_changed_from_acp" version_id="2010070" version_string="2.1.0"><![CDATA[Username changed from admin panel]]></phrase>
+  <phrase title="CMTV_UC_username_changes" version_id="2010070" version_string="2.1.0"><![CDATA[Username changes]]></phrase>
+  <phrase title="CMTV_UC_username_changes_in_history" version_id="2010070" version_string="2.1.0"><![CDATA[Username changes in history]]></phrase>
+  <phrase title="CMTV_UC_view_all" version_id="2010070" version_string="2.1.0"><![CDATA[View all]]></phrase>
+  <phrase title="CMTV_UC_view_your_username_changes" version_id="2010070" version_string="2.1.0"><![CDATA[View your username changes]]></phrase>
+  <phrase title="CMTV_UC_widget_default_title" version_id="2010070" version_string="2.1.0"><![CDATA[Latest username changes]]></phrase>
+  <phrase title="CMTV_UC_widget_full_style_explain" version_id="2010070" version_string="2.1.0"><![CDATA[A full size view, designed for full width such as normal content blocks.]]></phrase>
+  <phrase title="CMTV_UC_x_changed_username_to_y" version_id="2010070" version_string="2.1.0"><![CDATA[{oldUsername} changed their username to <strong>{newUsername}</strong>]]></phrase>
+  <phrase title="CMTV_UC_x_has_empty_username_change_history" version_id="2010070" version_string="2.1.0"><![CDATA[{name} has empty username change history.]]></phrase>
+  <phrase title="CMTV_UC_x_username_changes" version_id="2010070" version_string="2.1.0"><![CDATA[{name}'s username changes]]></phrase>
+  <phrase title="CMTV_UC_x_username_changes_in_total" version_id="2010070" version_string="2.1.0"><![CDATA[{total} username changes in total]]></phrase>
+  <phrase title="CMTV_UC_x_username_changes_num" version_id="2010070" version_string="2.1.0"><![CDATA[{total} username changes]]></phrase>
+  <phrase title="CMTV_UC_you_can_change_username_freely" version_id="2010070" version_string="2.1.0"><![CDATA[You can change username freely.]]></phrase>
+  <phrase title="CMTV_UC_you_can_change_username_one_time_in_x_days" version_id="2010070" version_string="2.1.0"><![CDATA[You can change username one time in {days} days.]]></phrase>
+  <phrase title="CMTV_UC_you_have_made_x_username_changes" version_id="2010070" version_string="2.1.0"><![CDATA[You have made {number} username changes]]></phrase>
+  <phrase title="CMTV_UC_you_will_be_able_to_change_username_in_x" version_id="2010070" version_string="2.1.0"><![CDATA[You will be able to change username in {changeDate}.]]></phrase>
+  <phrase title="option.CMTV_UC_recentUsernameChanges" version_id="2010070" version_string="2.1.0"><![CDATA[Recent username changes]]></phrase>
+  <phrase title="option_explain.CMTV_UC_recentUsernameChanges" version_id="2010070" version_string="2.1.0"><![CDATA[A number of most recent username changes showing in "Also known as" box.]]></phrase>
+  <phrase title="permission.CMTV_UC_changeFrequency" version_id="2010070" version_string="2.1.0"><![CDATA[Username change frequency]]></phrase>
+  <phrase title="permission.CMTV_UC_changeUsername" version_id="2010070" version_string="2.1.0"><![CDATA[Change username]]></phrase>
+  <phrase title="permission.CMTV_UC_editAnyHistory" version_id="2010070" version_string="2.1.0"><![CDATA[Edit any username change history]]></phrase>
+  <phrase title="permission.CMTV_UC_editHistory" version_id="2010070" version_string="2.1.0"><![CDATA[Edit own username change history]]></phrase>
+  <phrase title="permission.CMTV_UC_manageHistoryPrivacy" version_id="2010070" version_string="2.1.0"><![CDATA[Manage username changes history privacy]]></phrase>
+  <phrase title="permission.CMTV_UC_viewHistory" version_id="2010070" version_string="2.1.0"><![CDATA[View username changes history]]></phrase>
+  <phrase title="permission_interface.CMTV_UC_moderatorPermissions" version_id="2010070" version_string="2.1.0"><![CDATA[Username change moderator permissions]]></phrase>
+  <phrase title="permission_interface.CMTV_UC_permissions" version_id="2010070" version_string="2.1.0"><![CDATA[Username change permissions]]></phrase>
+  <phrase title="widget_def.CMTV_UC_username_changes" version_id="2010070" version_string="2.1.0"><![CDATA[Latest username changes]]></phrase>
+  <phrase title="widget_def_desc.CMTV_UC_username_changes" version_id="2010070" version_string="2.1.0"><![CDATA[Displays a block containing a list of X recent username changes.]]></phrase>
 </phrases>

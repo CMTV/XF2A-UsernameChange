@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <permission_interface_groups>
-  <interface_group interface_group_id="CMTV_UsernameChange" display_order="500" is_moderator="0"/>
-  <interface_group interface_group_id="CMTV_UsernameChangeModeratorPermissions" display_order="510" is_moderator="1"/>
+  <interface_group interface_group_id="CMTV_UC_moderatorPermissions" display_order="95" is_moderator="1"/>
+  <interface_group interface_group_id="CMTV_UC_permissions" display_order="90" is_moderator="0"/>
 </permission_interface_groups>

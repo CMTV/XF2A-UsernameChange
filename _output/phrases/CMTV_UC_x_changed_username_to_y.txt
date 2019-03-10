@@ -1,1 +1,1 @@
-{oldUsername} changed their username to <strong>{newUsername}</strong>.
+{oldUsername} changed their username to <strong>{newUsername}</strong>

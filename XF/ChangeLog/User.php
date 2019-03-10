@@ -1,11 +1,12 @@
 <?php
 /**
  * Username Change xF2 addon by CMTV
- * You can do whatever you want with this code
  * Enjoy!
  */
 
 namespace CMTV\UsernameChange\XF\ChangeLog;
+
+use CMTV\UsernameChange\Constants as C;
 
 class User extends XFCP_User
 {
@@ -13,8 +14,8 @@ class User extends XFCP_User
     {
         $labelMap = parent::getLabelMap();
 
-        $labelMap['CMTV_UC_allow_view_username_changes'] = 'CMTV_UC_view_your_username_changes';
-        $labelMap['CMTV_UC_username_changes'] = 'CMTV_UC_username_changes_in_history';
+        $labelMap[C::dbColumn('allow_view_username_changes')] = 'CMTV_UC_view_your_username_changes';
+        $labelMap[C::dbColumn('username_changes')] = 'CMTV_UC_username_changes_in_history';
 
         return $labelMap;
     }
@@ -23,7 +24,7 @@ class User extends XFCP_User
     {
         $formatterMap = parent::getFormatterMap();
 
-        $formatterMap['CMTV_UC_allow_view_username_changes'] = 'formatPrivacyValue';
+        $formatterMap[C::dbColumn('allow_view_username_changes')] = 'formatPrivacyValue';
 
         return $formatterMap;
     }

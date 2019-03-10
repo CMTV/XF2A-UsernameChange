@@ -1,6 +1,6 @@
 {
     "permission_type": "flag",
-    "interface_group_id": "CMTV_UsernameChange",
+    "interface_group_id": "CMTV_UC_permissions",
     "display_order": 10,
     "depend_permission_id": ""
 }

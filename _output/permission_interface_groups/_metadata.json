@@ -1,8 +1,8 @@
 {
-    "CMTV_UsernameChange.json": {
-        "hash": "17a783b34dc6a42b0947021dedf7b90a"
+    "CMTV_UC_moderatorPermissions.json": {
+        "hash": "813f307f385cc15a3a033decc0ee27e9"
     },
-    "CMTV_UsernameChangeModeratorPermissions.json": {
-        "hash": "551a07f973c659da4405bb9997ac04ad"
+    "CMTV_UC_permissions.json": {
+        "hash": "fbfdc2fa0f8139d633c667f900c71fab"
     }
 }

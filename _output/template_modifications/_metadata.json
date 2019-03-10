@@ -1,23 +1,23 @@
 {
     "admin/CMTV_UC_helper_criteria.json": {
-        "hash": "9f607df59b770a0379fd79616a5f197d"
+        "hash": "22650435bc2f54a8be68697d49a81aac"
     },
     "admin/CMTV_UC_tools_rebuild.json": {
-        "hash": "d2b60b652ff2a491f39c23a570b8b4f3"
+        "hash": "db37e38dcd5e7984df576a2a133e8e70"
     },
     "public/CMTV_UC_account_details.json": {
-        "hash": "3b5cf5c047b806cbc29c1acf869949fc"
+        "hash": "62d0476164a65a98e4142ba64b8a24aa"
     },
     "public/CMTV_UC_account_privacy.json": {
-        "hash": "b2469985ff286f4c9e0ccb20006c1421"
+        "hash": "2ba5f865e62a4ef6f938f8ab90445272"
     },
-    "public/CMTV_UC_helper_js_global.json": {
-        "hash": "b765aecc9476811eb14b85dc15b6aed5"
+    "public/CMTV_UC_helper_js_global_style.json": {
+        "hash": "9ccd9b7ea30f989056a0baa29e37f8b0"
     },
-    "public/CMTV_UC_member_tooltip.json": {
-        "hash": "bb648f362bc98ad70d89a842d63f561d"
+    "public/CMTV_UC_member_tooltip_username_changes.json": {
+        "hash": "af16932ba22015fc5b9602be931f72b7"
     },
-    "public/CMTV_UC_member_view.json": {
-        "hash": "2d54ad518ed7715816ceddb785d12c2b"
+    "public/CMTV_UC_member_view_username_changes.json": {
+        "hash": "4af61afc223fccbad64d4a7f49450cb2"
     }
 }

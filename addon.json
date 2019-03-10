@@ -2,18 +2,25 @@
     "legacy_addon_id": "",
     "title": "Username Change",
     "description": "Allow your users to easily change their usernames! Various permissions, username changes history management, widget with two styles, criteria for trophies and more...",
-    "version_id": 1000070,
-    "version_string": "1.0.0",
+    "version_id": 2010070,
+    "version_string": "2.1.0",
     "dev": "CMTV",
     "dev_url": "https://xenforo.com/community/members/cmtv.162075/",
     "faq_url": "",
     "support_url": "",
     "extra_urls": {
         "My addons & tutorials": "https://xenforo.com/community/resources/authors/cmtv.162075/",
-		"Support me!": "https://www.patreon.com/cmtv"
+        "Support me!": "https://www.patreon.com/cmtv"
     },
     "require": {
-		"php": ["7.0.0", "PHP 7+"]
-	},
+        "XF": [
+            2010070,
+            "XenForo 2.1"
+        ],
+        "php": [
+            "7.0.0",
+            "PHP 7+"
+        ]
+    },
     "icon": "icon512.png"
 }

@@ -1,7 +1,6 @@
 <?php
 /**
  * Username Change xF2 addon by CMTV
- * You can do whatever you want with this code
  * Enjoy!
  */
 
@@ -15,10 +14,6 @@ class UsernameChange extends AbstractHandler
 {
     public function getTemplateData($action, NewsFeed $newsFeed, Entity $content = null)
     {
-        $templateData = parent::getTemplateData($action, $newsFeed, $content);
-
-
-
-        return $templateData;
+        return parent::getTemplateData($action, $newsFeed, $content);
     }
 }

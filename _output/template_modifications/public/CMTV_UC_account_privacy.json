@@ -1,9 +1,9 @@
 {
     "template": "account_privacy",
-    "description": "Adding \"Who can see username change history\" privacy controls",
+    "description": "Username changes visibility privacy option",
     "execution_order": 10,
     "enabled": true,
     "action": "str_replace",
-    "find": "<xf:if is=\"$xf.visitor.canViewProfilePosts()\">",
-    "replace": "<xf:include template=\"CMTV_UC_account_privacy\" />\n\n$0"
+    "find": "<xf:macro name=\"privacy_option\"\n\t\t\t\t\targ-user=\"{$xf.visitor}\"\n\t\t\t\t\targ-name=\"allow_view_identities\"\n\t\t\t\t\targ-label=\"{{ phrase('view_your_identities:') }}\" />",
+    "replace": "$0\n\n<xf:if is=\"$xf.visitor.canManageUsernameChangeHistoryPrivacy()\">\n\t<xf:macro name=\"privacy_option\"\n\t\t\t  arg-user=\"{$xf.visitor}\"\n\t\t\t  arg-name=\"cmtv_uc_allow_view_username_changes\" \n\t\t\t  arg-label=\"{{ phrase('CMTV_UC_view_your_username_changes:') }}\" />\n</xf:if>"
 }

@@ -2,16 +2,22 @@
     "XF-Admin-Controller-Permission_CMTV-UsernameChange-XF-Admin-Controller-Permission.json": {
         "hash": "8cc9ef88ca5418758277bbc1a92ade7f"
     },
+    "XF-Admin-Controller-User_CMTV-UsernameChange-XF-Admin-Controller-User.json": {
+        "hash": "df1966275daa2da6e30db471f976d430"
+    },
     "XF-ChangeLog-User_CMTV-UsernameChange-XF-ChangeLog-User.json": {
         "hash": "ddefa2a0952bb44e72132e61518e6da2"
     },
     "XF-Entity-UserPrivacy_CMTV-UsernameChange-XF-Entity-UserPrivacy.json": {
-        "hash": "d0467deb7c56b02b0de743f8a0188350"
+        "hash": "a096d900a142158299ba9f90d521de8a"
     },
     "XF-Entity-User_CMTV-UsernameChange-XF-Entity-User.json": {
         "hash": "e2cc3914920c6b050d8a97b690003c2f"
     },
     "XF-Pub-Controller-Account_CMTV-UsernameChange-XF-Pub-Controller-Account.json": {
         "hash": "0bbf04c367792a9859c03efa5d549e78"
+    },
+    "XF-Pub-Controller-Member_CMTV-UsernameChange-XF-Pub-Controller-Member.json": {
+        "hash": "35bcb8ccb29214b5701fd49a0c8fb742"
     }
 }

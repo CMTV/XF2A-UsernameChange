@@ -6,6 +6,7 @@
 namespace CMTV\UsernameChange\XF\Admin\Controller
 {
 	class XFCP_Permission extends \XF\Admin\Controller\Permission {}
+	class XFCP_User extends \XF\Admin\Controller\User {}
 }
 
 namespace CMTV\UsernameChange\XF\ChangeLog
@@ -22,4 +23,5 @@ namespace CMTV\UsernameChange\XF\Entity
 namespace CMTV\UsernameChange\XF\Pub\Controller
 {
 	class XFCP_Account extends \XF\Pub\Controller\Account {}
+	class XFCP_Member extends \XF\Pub\Controller\Member {}
 }

@@ -1,94 +1,71 @@
 <?php
 /**
  * Username Change xF2 addon by CMTV
- * You can do whatever you want with this code
  * Enjoy!
  */
 
 namespace CMTV\UsernameChange\Repository;
 
-use CMTV\UsernameChange\XF\Entity\User;
+use XF\Entity\PermissionEntry;
+use XF\Entity\User;
+use XF\Mvc\Entity\Finder;
 use XF\Mvc\Entity\Repository;
+
+use CMTV\UsernameChange\Constants as C;
 
 class UsernameChange extends Repository
 {
-    /**
-     * @param User $user
-     *
-     * @return null|\CMTV\UsernameChange\Entity\UsernameChange
-     */
-    public function getLastUsernameChange(User $user)
+    public function getUsernameChanges(User $user, int $limit = -1, string $direction = 'DESC')
     {
-        $finder = $this->finder('CMTV\UsernameChange:UsernameChange');
-        $finder->where('user_id', '=', $user->user_id);
-        $finder->order('change_date', 'DESC');
-
-        /** @var \CMTV\UsernameChange\Entity\UsernameChange|null $lastUsernameChange */
-        $lastUsernameChange = $finder->fetchOne();
-
-        return $lastUsernameChange;
-    }
-
-    /**
-     * @param User $user
-     * @param string $direction
-     * @param int $limit
-     *
-     * @return \XF\Mvc\Entity\Finder
-     */
-    public function getUsernameChanges(User $user, string $direction = 'ASC', int $limit = -1)
-    {
-        $finder = $this->finder('CMTV\UsernameChange:UsernameChange');
-        $finder->where('user_id', '=', $user->user_id);
+        $finder = $this->finder(C::mvc('UsernameChange'));
+        $finder->where('user_id', $user->user_id);
         $finder->order('change_date', $direction);
 
-        if ($limit !== -1)
+        if ($limit >= 0)
         {
             $finder->limit($limit);
         }
 
-        return $finder;
+        return $finder->fetch();
     }
 
-    /**
-     * @param User $user
-     *
-     * @return int
-     */
-    public function getNextUsernameChangeTimestamp(User $user)
+    public function getNextChangeTime(User $user)
     {
-        if ($user->canChangeUsernameFreely())
+        // Getting min int permission value
+
+        $userGroups =   $user->secondary_group_ids;
+        $userGroups[] = $user->user_group_id;
+
+        /** @var Finder $permissionFinder */
+        $permissionFinder = $this->finder('XF:PermissionEntry');
+
+        $permissionFinder
+            ->where('permission_group_id', C::ADDON_ID_SHORT)
+            ->where('permission_id', 'changeFrequency')
+            ->whereOr([
+                ['user_group_id', $userGroups],
+                ['user_id', $user->user_id]
+            ]);
+
+        $permissions = $permissionFinder->fetch();
+
+        $lowestValue = $permissions->first()->permission_value_int;
+
+        /** @var PermissionEntry $permission */
+        foreach ($permissions as $permission)
+        {
+            $lowestValue = min($lowestValue, $permission->permission_value_int);
+        }
+
+        // --
+
+        $changeFrequency = $lowestValue;
+
+        if ($changeFrequency === -1)
         {
             return time();
         }
 
-        return $user->CMTV_UC_username_change_date + $user->getUsernameChangeFrequency() * 86400;
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return string
-     */
-    public function getNextUsernameChangeDateTime(User $user)
-    {
-        return \XF::language()->dateTime($this->getNextUsernameChangeTimestamp($user));
-    }
-
-    /**
-     * @param int|User $userId
-     *
-     * @return int
-     */
-    public function getUsernameChangeCount($userId)
-    {
-        if ($userId instanceof \XF\Entity\User)
-        {
-            $userId = $userId->user_id;
-        }
-
-        $query = "SELECT COUNT(*) FROM `xf_cmtv_uc_username_change` WHERE `user_id` = ?";
-
-        return $this->db()->fetchOne($query, $userId);
+        return $user->getValue(C::dbColumn('username_change_date')) + $changeFrequency * 86400;
     }
 }

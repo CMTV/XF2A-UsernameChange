@@ -1,4 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<routes>
-  <route route_type="public" route_prefix="username-changes" format=":int&lt;user_id,username&gt;/" controller="CMTV\UsernameChange:UsernameChanges" context="members"/>
-</routes>
+<routes/>

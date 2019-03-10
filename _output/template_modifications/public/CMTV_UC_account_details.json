@@ -1,9 +1,9 @@
 {
     "template": "account_details",
-    "description": "Adding \"Username\" field",
+    "description": "Adding \"Username\" text field",
     "execution_order": 10,
     "enabled": true,
     "action": "str_replace",
-    "find": "<xf:if is=\"$xf.visitor.canUploadAvatar()\">",
+    "find": "<xf:formrow rowtype=\"button\"\n\t\t\t\tlabel=\"{{ phrase('email') }}\">\n\n\t\t\t\t<xf:if is=\"$xf.visitor.email\">\n\t\t\t\t\t{$xf.visitor.email}\n\t\t\t\t<xf:else />\n\t\t\t\t\t<i>{{ phrase('none') }}</i>\n\t\t\t\t</xf:if>\n\t\t\t\t<xf:button href=\"{{ link('account/email') }}\" class=\"button--link\" overlay=\"true\">{{ phrase('change') }}</xf:button>\n\t\t\t</xf:formrow>",
     "replace": "<xf:include template=\"CMTV_UC_account_details\" />\n\n$0"
 }

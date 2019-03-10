@@ -1,24 +1,28 @@
 .CMTV_UC
-{
-	&-show
+{	
+	&-ucItem
 	{
-		background: transparent !important;
-		border: none !important;
+		&--full
+		{
+			.changesNumContainer
+			{
+				text-align: center;
 				
-		padding-top: 0;
-		padding-bottom: 0;
-		
-		position: relative;
-		top: -3px;
-		left: -7px;
-	}
-}
-
-.usernameChangeItem
-{
-	.old-username,
-	.contentRow-minor.contentRow-minor--hideLinks .old-username
-	{
-		color: @xf-textColor;
+				@media (max-width: @xf-responsiveMedium)
+				{
+					dt
+					{
+						padding-right: @xf-paddingSmall !important;
+						font-size: 100%;
+						
+						&:after
+						{
+							display: inline;
+							content: ':';
+						}
+					}
+				}
+			}
+		}
 	}
 }

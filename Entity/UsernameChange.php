@@ -1,7 +1,6 @@
 <?php
 /**
  * Username Change xF2 addon by CMTV
- * You can do whatever you want with this code
  * Enjoy!
  */
 
@@ -11,12 +10,18 @@ use CMTV\UsernameChange\XF\Entity\User;
 use XF\Mvc\Entity\Entity;
 use XF\Mvc\Entity\Structure;
 
+use CMTV\UsernameChange\Constants as C;
+
 /**
  * COLUMNS
  * @property int change_id
  * @property int user_id
  * @property string old_username
  * @property int change_date
+ * @property bool from_acp
+ *
+ * GETTERS
+ * @property string new_username
  *
  * RELATIONS
  * @property \XF\Entity\User User
@@ -25,10 +30,10 @@ class UsernameChange extends Entity
 {
     public static function getStructure(Structure $structure)
     {
-        $structure->table = 'xf_cmtv_uc_username_change';
-        $structure->shortName = 'CMTV\UsernameChange:UsernameChange';
-        $structure->primaryKey = 'change_id';
-        $structure->contentType = 'username_change';
+        $structure->table =         C::dbTable('username_change');
+        $structure->shortName =     C::mvc('UsernameChange');
+        $structure->primaryKey =    'change_id';
+        $structure->contentType =   'username_change';
 
         $structure->columns = [
             'change_id' => [
@@ -45,11 +50,18 @@ class UsernameChange extends Entity
             'change_date' => [
                 'type' => self::UINT,
                 'default' => 0
+            ],
+            'from_acp' => [
+                'type' => self::BOOL,
+                'default' => false
             ]
         ];
 
         $structure->getters = [
-            'new_username' => true
+            'new_username' => [
+                'getter' => true,
+                'cache' => true
+            ]
         ];
 
         $structure->relations = [
@@ -71,26 +83,14 @@ class UsernameChange extends Entity
         return $structure;
     }
 
-    /**
-     * @return string
-     */
     public function getNewUsername()
     {
-        $finder = $this->finder('CMTV\UsernameChange:UsernameChange');
-        $finder
-            ->where('change_date', '>', $this->change_date)
+        $finder = $this->finder(C::mvc('UsernameChange'))
+            ->where('change_id', '>', $this->change_id)
             ->where('user_id', $this->user_id)
             ->limit(1);
 
-        /** @var UsernameChange|null $nextChange */
-        if ($nextChange = $finder->fetchOne())
-        {
-            $newUsername = $nextChange->old_username;
-        }
-        else
-        {
-            $newUsername = $this->User->username;
-        }
+        $newUsername = ($nextUC = $finder->fetchOne()) ? $nextUC->old_username : $this->User->username;
 
         return $newUsername;
     }
@@ -100,6 +100,11 @@ class UsernameChange extends Entity
         /** @var User $visitor */
         $visitor = \XF::visitor();
 
-        return $visitor->canViewUsernameChanges();
+        return $visitor->canViewUsernameChangesHistory($this->User);
+    }
+
+    public function isVisible()
+    {
+        return true;
     }
 }

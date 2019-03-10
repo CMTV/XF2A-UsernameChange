@@ -1,11 +1,14 @@
 <?php
 /**
  * Username Change xF2 addon by CMTV
- * You can do whatever you want with this code
  * Enjoy!
  */
 
 namespace CMTV\UsernameChange\XF\Admin\Controller;
+
+use XF\Mvc\Reply\Error;
+
+use CMTV\UsernameChange\Constants as C;
 
 class Permission extends XFCP_Permission
 {
@@ -13,28 +16,34 @@ class Permission extends XFCP_Permission
     {
         $view = parent::actionAnalyze();
 
-        if ($view instanceof \XF\Mvc\Reply\Error)
+        // Doing nothing if error happened
+        if ($view instanceof Error)
         {
             return $view;
         }
 
+        // Ensure there is an analysis array
         if ($analysis = $view->getParam('analysis'))
         {
-            // Finding the lowest value
+            // Getting an array of values for different groups (+ user value for specific users)
+            $intermediates = $analysis[C::ADDON_ID_SHORT]['changeFrequency']['intermediates'];
 
-            $intermediates = $analysis['CMTV_UC']['changeFrequency']['intermediates'];
+            // Getting the first value
+            $lowestValue = array_shift($intermediates)->value;
 
-            $days = array_shift($intermediates)->value;
-
+            // Iterating values
             foreach ($intermediates as $intermediate)
             {
+                // A zero (0) value is equivalent to "No" and should not be counted (use "Unlimited" option instead)!
                 if ($intermediate->value !== 0)
                 {
-                    $days = min($days, $intermediate->value);
+                    // If current value is lower than $lowestValue, use it
+                    $lowestValue = min($lowestValue, $intermediate->value);
                 }
             }
 
-            $analysis['CMTV_UC']['changeFrequency']['final'] = $days;
+            // Setting final value to $lowestValue
+            $analysis[C::ADDON_ID_SHORT]['changeFrequency']['final'] = $lowestValue;
 
             $view->setParam('analysis', $analysis);
         }

@@ -1,1 +1,1 @@
-{total} username changes
+{name}'s username changes

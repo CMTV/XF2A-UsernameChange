@@ -1,16 +1,30 @@
 <xf:if is="$xf.visitor.canChangeUsername()">
-	<xf:formrow label="{{ phrase('user_name') }}">	
+	<xf:formrow label="{{ phrase('user_name') }}">
 		<xf:textbox name="user[username]" value="{{ $xf.visitor.username }}"
-					disabled="{{ !$xf.visitor.isTimeLimitExpired() }}"
+					disabled="{{ !$xf.visitor.canChangeUsernameNow() }}"
 					maxlength="{{ max_length($xf.visitor, 'username') }}" />
 		
 		<div class="formRow-explain">
-			{$CMTV_UC_explain}
+			<xf:set var="$frequency" value="{{ $xf.visitor.hasPermission('CMTV_UC', 'changeFrequency') }}" />
+			
+			<xf:if is="$frequency === -1">
+				{{ phrase('CMTV_UC_you_can_change_username_freely') }}
+			<xf:elseif is="!$xf.visitor.canChangeUsernameNow()" />
+				{{ phrase('CMTV_UC_you_will_be_able_to_change_username_in_x', { 'changeDate': date_time($xf.visitor.next_username_change_time) }) }}
+			<xf:else />
+				{{ phrase('CMTV_UC_you_can_change_username_one_time_in_x_days', { 'days': $frequency }) }}
+			</xf:if>
 		</div>
-
-		<xf:if is="($xf.visitor.canDeleteOwnUsernameChangeHistory() || $xf.visitor.canDeleteAnyUsernameChangeHistory()) && $xf.visitor.hasUsernameChangeHistory()">
+		
+		<xf:if is="$xf.visitor.cmtv_uc_username_changes > 0">
 			<br>
-			{{ phrase('CMTV_UC_you_have_made_x_username_changes', {'number': $xf.visitor.CMTV_UC_username_changes}) }} <xf:button href="{{ link('username-changes', $xf.visitor, {'edit': 1}) }}" class="button--link">{{ phrase('edit_history') }}</xf:button>
+			{{ phrase('CMTV_UC_you_have_made_x_username_changes', { 'number': $xf.visitor.cmtv_uc_username_changes }) }}
+			
+			<xf:if is="$xf.visitor.canEditUsernameChangesHistory($xf.visitor)">
+				<xf:button href="{{ link('members/username-changes', $xf.visitor, { 'edit': 1 }) }}" class="button--link">
+					{{ phrase('edit_history') }}
+				</xf:button>
+			</xf:if>
 		</xf:if>
 	</xf:formrow>
 </xf:if>

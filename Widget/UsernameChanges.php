@@ -1,15 +1,16 @@
 <?php
 /**
  * Username Change xF2 addon by CMTV
- * You can do whatever you want with this code
  * Enjoy!
  */
 
 namespace CMTV\UsernameChange\Widget;
 
+use CMTV\UsernameChange\Entity\UsernameChange;
 use CMTV\UsernameChange\XF\Entity\User;
-use XF\Mvc\Entity\Finder;
 use XF\Widget\AbstractWidget;
+
+use CMTV\UsernameChange\Constants as C;
 
 class UsernameChanges extends AbstractWidget
 {
@@ -23,7 +24,7 @@ class UsernameChanges extends AbstractWidget
         /** @var User $visitor */
         $visitor = \XF::visitor();
 
-        if (!$visitor->canViewUsernameChanges())
+        if (!$visitor->canViewUsernameChangesHistory())
         {
             return '';
         }
@@ -31,18 +32,14 @@ class UsernameChanges extends AbstractWidget
         $options = $this->options;
         $limit = $options['limit'];
 
-        /** @var Finder $usernameChangeFinder */
-        $usernameChangeFinder = $this->finder('CMTV\UsernameChange:UsernameChange');
-        $usernameChangeFinder
+        $usernameChanges = $this->finder(C::mvc('UsernameChange'))
             ->with('User')
             ->order('change_date', 'DESC')
-            ->limit(max($limit * 2, 10));
+            ->limit(max($limit * 2, 10))
+            ->fetch();
 
-        /**
-         * @var int $changeId
-         * @var \CMTV\UsernameChange\Entity\UsernameChange $usernameChange
-         */
-        foreach ($usernameChanges = $usernameChangeFinder->fetch() as $changeId => $usernameChange)
+        /** @var UsernameChange $usernameChange */
+        foreach ($usernameChanges as $changeId => $usernameChange)
         {
             if (!$usernameChange->canView() || $visitor->isIgnoring($usernameChange->user_id))
             {
@@ -53,12 +50,12 @@ class UsernameChanges extends AbstractWidget
         $usernameChanges = $usernameChanges->slice(0, $limit, true);
 
         $viewParams = [
-            'title' => $this->getTitle() ?: \XF::phrase('CMTV_UC_widget_default_title'),
+            'title' => $this->getTitle() ?: \XF::phrase(C::phrase('widget_default_title')),
             'usernameChanges' => $usernameChanges,
             'style' => $options['style']
         ];
 
-        return $this->renderer('CMTV_UC_widget_new_username_changes', $viewParams);
+        return $this->renderer(C::template('widget_new_username_changes'), $viewParams);
     }
 
     public function verifyOptions(\XF\Http\Request $request, array &$options, &$error = null)

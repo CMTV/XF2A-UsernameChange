@@ -1,1 +1,1 @@
-Days between username changes
+Username change frequency

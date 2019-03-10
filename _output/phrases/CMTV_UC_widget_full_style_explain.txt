@@ -1,1 +1,1 @@
-A full size view, displaying similar to on X's username change history page.
+A full size view, designed for full width such as normal content blocks.
