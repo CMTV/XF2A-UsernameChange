@@ -62,116 +62,15 @@ $0]]></replace>
 $0]]></replace>
   </modification>
   <modification type="public" template="member_tooltip" modification_key="CMTV_UC_member_tooltip_username_changes" description="Username changes menu" execution_order="10" enabled="1" action="str_replace">
-    <find><![CDATA[<xf:if contentcheck="true">
-					<div class="memberTooltip-headerAction">
-						<xf:button class="button--link button--small menuTrigger"
-							data-xf-click="menu"
-							aria-label="{{ phrase('more_options') }}"
-							aria-expanded="false"
-							aria-haspopup="true">
-							<xf:fa icon="fa-cog" />
-						</xf:button>
-
-						<div class="menu" data-menu="menu" aria-hidden="true">
-							<div class="menu-content">
-								<h3 class="menu-header">{{ phrase('moderator_tools') }}</h3>
-								<xf:contentcheck>
-									<xf:macro template="member_macros" name="moderator_menu_actions"
-										arg-user="{$user}"
-										arg-context="tooltip" />
-								</xf:contentcheck>
-							</div>
-						</div>
-					</div>
-				</xf:if>]]></find>
-    <replace><![CDATA[<div class="memberTooltip-headerAction">
-	<xf:macro name="mini" template="CMTV_UC_username_changes_macros"
-			  arg-user="{$user}" />
-	
-	<xf:if contentcheck="true">
-		<xf:button class="button--link button--small menuTrigger"
-				   data-xf-click="menu"
-				   aria-label="{{ phrase('more_options') }}"
-				   aria-expanded="false"
-				   aria-haspopup="true">
-			<xf:fa icon="fa-cog" />
-		</xf:button>
-		
-		<div class="menu" data-menu="menu" aria-hidden="true">
-			<div class="menu-content">
-				<h3 class="menu-header">{{ phrase('moderator_tools') }}</h3>
-				<xf:contentcheck>
-					<xf:macro template="member_macros" name="moderator_menu_actions"
-							  arg-user="{$user}"
-							  arg-context="tooltip" />
-				</xf:contentcheck>
-			</div>
-		</div>
-	</xf:if>
-</div>]]></replace>
+    <find><![CDATA[<div class="memberTooltip-headerInfo">]]></find>
+    <replace><![CDATA[$0
+<xf:macro name="mini" template="CMTV_UC_username_changes_macros" arg-user="{$user}" />]]></replace>
   </modification>
   <modification type="public" template="member_view" modification_key="CMTV_UC_member_view_username_changes" description="Username changes menu" execution_order="10" enabled="1" action="str_replace">
-    <find><![CDATA[<xf:if contentcheck="true">
-							<div class="memberHeader-actionTop">
-								<div class="buttonGroup">
-								<xf:contentcheck>
-									<xf:if is="$user.canBeReported()">
-										<xf:button href="{{ link('members/report', $user) }}"
-											class="button--link" overlay="true">
-											{{ phrase('report_verb') }}
-										</xf:button>
-									</xf:if>
-									<xf:if contentcheck="true">
-										<div class="buttonGroup-buttonWrapper">
-											<xf:button class="button--link menuTrigger" data-xf-click="menu" aria-expanded="false" aria-haspopup="true">{{ phrase('moderator_tools') }}</xf:button>
-											<div class="menu" data-menu="menu" aria-hidden="true">
-												<div class="menu-content">
-													<h3 class="menu-header">{{ phrase('moderator_tools') }}</h3>
-													<xf:contentcheck>
-														<xf:macro template="member_macros" name="moderator_menu_actions"
-															arg-user="{$user}"
-															arg-context="profile" />
-													</xf:contentcheck>
-												</div>
-											</div>
-										</div>
-									</xf:if>
-								</xf:contentcheck>
-								</div>
-							</div>
-						</xf:if>]]></find>
-    <replace><![CDATA[<div class="memberHeader-actionTop">
+    <find><![CDATA[<div class="memberHeader-actionTop">]]></find>
+    <replace><![CDATA[$0
 	<xf:macro name="full" template="CMTV_UC_username_changes_macros"
-			  arg-user="{$user}" />
-   
-    <xf:if contentcheck="true">
-        <div class="buttonGroup">
-            <xf:contentcheck>
-                <xf:if is="$user.canBeReported()">
-                    <xf:button href="{{ link('members/report', $user) }}"
-                               class="button--link" overlay="true">
-                        {{ phrase('report_verb') }}
-                    </xf:button>
-                </xf:if>
-                <xf:if contentcheck="true">
-                    <div class="buttonGroup-buttonWrapper">
-                        <xf:button class="button--link menuTrigger" data-xf-click="menu" aria-expanded="false" aria-haspopup="true">{{ phrase('moderator_tools') }}</xf:button>
-                        <div class="menu" data-menu="menu" aria-hidden="true">
-                            <div class="menu-content">
-                                <h3 class="menu-header">{{ phrase('moderator_tools') }}</h3>
-                                <xf:contentcheck>
-                                    <xf:macro template="member_macros" name="moderator_menu_actions"
-                                              arg-user="{$user}"
-                                              arg-context="profile" />
-                                </xf:contentcheck>
-                            </div>
-                        </div>
-                    </div>
-                </xf:if>
-            </xf:contentcheck>
-        </div>
-    </xf:if>   
-</div>]]></replace>
+			  arg-user="{$user}" />]]></replace>
   </modification>
   <modification type="admin" template="tools_rebuild" modification_key="CMTV_UC_tools_rebuild" description="Adding &quot;Rebuild username changes&quot; job" execution_order="10" enabled="1" action="str_replace">
     <find><![CDATA[<!--[XF:after_users]-->]]></find>
