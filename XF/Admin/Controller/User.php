@@ -20,14 +20,11 @@ class User extends XFCP_User
         }
 
         /** @var \CMTV\UsernameChange\XF\Entity\User $user */
-        $user = $user;
-
         $newUsername = $this->request->get('user')['username'];
 
         if ($newUsername !== $user->username)
         {
             // Only update essential columns. No need to change username. It is done in the parent method
-
             $form->basicEntitySave($user, [
                 C::dbColumn('username_changes') => $user->get(C::dbColumn('username_changes')) + 1,
                 C::dbColumn('username_change_date') => time()
