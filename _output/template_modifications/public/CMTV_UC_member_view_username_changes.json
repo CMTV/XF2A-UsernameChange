@@ -1,9 +1,9 @@
 {
     "template": "member_view",
     "description": "Username changes menu",
-    "execution_order": 10,
+    "execution_order": 11,
     "enabled": true,
     "action": "str_replace",
     "find": "<div class=\"memberHeader-actionTop\">",
-    "replace": "$0\n\t<xf:macro name=\"full\" template=\"CMTV_UC_username_changes_macros\"\n\t\t\t  arg-user=\"{$user}\" />"
+    "replace": "$0\n<xf:macro name=\"full\" template=\"CMTV_UC_username_changes_macros\" arg-user=\"{$user}\"/>"
 }
