@@ -17,16 +17,24 @@ class Permission extends XFCP_Permission
         $view = parent::actionAnalyze();
 
         // Doing nothing if error happened
-        if ($view instanceof Error)
-        {
+        if ($view instanceof Error) {
             return $view;
         }
 
         // Ensure there is an analysis array
         if ($analysis = $view->getParam('analysis'))
         {
+            // This doesn't work if the analysis is on a node. Doesn't make sense either.
+            if($view->getParam('contentType')) {
+                return $view;
+            }
+
             // Getting an array of values for different groups (+ user value for specific users)
             $intermediates = $analysis[C::ADDON_ID_SHORT]['changeFrequency']['intermediates'];
+
+            if($intermediates === null) {
+                return $view;
+            }
 
             // Getting the first value
             $lowestValue = array_shift($intermediates)->value;
