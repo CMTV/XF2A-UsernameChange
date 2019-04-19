@@ -23,7 +23,7 @@ class Permission extends XFCP_Permission
         }
 
         // Ensure there is an analysis array
-        if ($analysis = $view->getParam('analysis'))
+        if ($analysis = $view->getParam('analysis') && isset($analysis[C::ADDON_ID_SHORT]))
         {
             // Getting an array of values for different groups (+ user value for specific users)
             $intermediates = $analysis[C::ADDON_ID_SHORT]['changeFrequency']['intermediates'];
